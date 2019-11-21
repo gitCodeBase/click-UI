@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+
+  <mat-form-field>
+      <mat-select placeholder="State"  [(value)]="stateSelected" (selectionChange)="populateCity($event.value)">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let state of data.states" [value]="state">{{state.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="City" [(value)]="citySelected" (selectionChange)="populatePlaces($event.value)" formControlName="city">
+          <mat-option>None</mat-option>
+            <mat-option *ngFor="let city of data.cities" [value]="city">{{city.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field>
+      <img mat-card-image src="http://localhost:9084/click/user/image/retrieve" width="1000px" position="absolute">
+    </mat-form-field>    
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div>

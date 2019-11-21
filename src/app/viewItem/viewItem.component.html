@@ -1,0 +1,84 @@
+<ng-template [ngIf]="itemList.length > 0" [ngIfElse]="elseBlock">
+
+<li *ngFor="let item of itemList | paginate: {itemsPerPage: 2, currentPage: p}">
+      <h1>{{item.details.name}}, {{item.details.place}}</h1>
+      <mat-grid-list cols="3" rowHeight="400px" (window:resize)="onResize($event)">
+          <mat-grid-tile>
+              <div>
+                  <div>
+                    <mat-label><b>Name : </b>{{item.details.name}}</mat-label>
+                  </div>
+                  <div>                 
+                    <mat-label><b>Address : </b>{{item.details.address}}</mat-label>
+                  </div>
+                  <div>
+                    <mat-label><b>Contact Number : </b>{{item.details.contactNum}}</mat-label>
+                  </div>
+                  <div>
+                      <mat-label><b>Email : </b>{{item.details.mailId}}</mat-label>
+                    </div>
+                    <div>
+                       <mat-label><b>Quantity Available : </b>{{item.details.qtyAvailable}}</mat-label>
+                    </div>
+
+                    <div>
+                      <mat-label><b>Place: </b>{{item.details.place}}</mat-label>
+                    </div>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div>
+                <div>
+                    <mat-label><b>Base Rate : </b>{{item.price.baseRate}}</mat-label>
+                </div>
+                <div>
+                    <mat-label><b>Tax : </b>{{item.price.tax}}</mat-label>
+                </div>
+                <div>
+                    <mat-label><b>Discount : </b>{{item.price.discount}}</mat-label>
+                </div>
+                <div>
+                    <mat-label><b>Subtotal : </b>{{item.price.subTotal}}</mat-label>
+                </div>
+              </div>
+            </mat-grid-tile>
+           <mat-grid-tile>
+             <div>
+                <div>
+                    <mat-label><b>Description : </b>{{item.details.description}}</mat-label>
+                 </div>
+              <div>
+                <mat-label><b>Available Quantity: </b>{{item.details.qtyAvailable}}</mat-label>
+              </div>
+              <div>
+                <mat-label><b>Amenities : </b>{{item.details.amenities.amenity1}}</mat-label>
+              </div>
+              <div>
+                 <mat-label>{{item.details.amenities.amenity2}}</mat-label>
+              </div>
+              <div>
+                  <mat-label>{{item.details.amenities.amenity3}}</mat-label>
+               </div>
+               <div>
+                  <mat-label>{{item.details.amenities.amenity4}}</mat-label>
+               </div>
+               <div>
+                  <mat-label>{{item.details.amenities.amenity5}}</mat-label>
+               </div>
+               <div>
+                  <mat-label>{{item.details.amenities.amenity6}}</mat-label>
+               </div>
+            </div>
+            
+           
+          </mat-grid-tile>
+          
+      </mat-grid-list>
+      <button mat-button class="btn btn-default" (click)="modifyItem(item._id)">Edit</button>
+    </li>
+    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+</ng-template>
+<ng-template #elseBlock>
+  <mat-label><h3>No Items found!!</h3></mat-label>
+</ng-template>
+

@@ -1,0 +1,56 @@
+<!--
+<form [formGroup]="loginForm">
+    <h1>{{type | titlecase}} Login</h1>
+  <mat-grid-list cols="2" rowHeight="3:1">
+    {{message}}
+      <mat-grid-tile>
+        <div>
+          <div>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email address" required="true" formControlName="email">
+              </mat-form-field>
+          </div>
+          <div>
+              <mat-form-field>
+                  <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </mat-form-field>
+          </div>
+          <button mat-button class="btn btn-default" (click)="onSubmit()">Login</button>
+          <mat-label><a (click)="forgotPassword()" mat-button>Forgot Password</a></mat-label>
+          <ng-template [ngIf]="type == 'vendor'">
+              <mat-label><a (click)="vendorRegistration()" mat-button>Register as new Vendor</a></mat-label>
+            </ng-template>    
+        </div>
+       
+      </mat-grid-tile>
+      
+  </mat-grid-list>
+</form>
+
+-->
+
+
+
+<form [formGroup]="loginForm">
+	<div class="login">
+		<div class="container">
+        {{message}}
+    	<h3>Login Form</h3>
+			<p class="est animated wow zoomIn">You can sign in using your Boogiee.com account to access our services.</p>
+			<div class="login-form-grids">
+			
+					<input type="email" placeholder="Email Address" required=" " formControlName="email">
+					<input type="password" placeholder="Password" required=" " formControlName="password">
+					<div class="forgot">
+						<a (click)="forgotPassword()" mat-button>Forgot Password?</a>
+					</div>
+         
+          <button mat-button class="btn-submit" (click)="onSubmit()">Login</button>
+                        
+			</div>
+			<h4>For New People</h4>
+			<p class="animated wow slideInUp"><a routerLink="/signup/{{type}}">Register Here</a> (Or) go back to <a routerLink="/home">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+		</div>
+  </div>
+</form>

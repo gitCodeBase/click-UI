@@ -1,0 +1,70 @@
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+    background: #ffffff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 9px 48px;
+    padding-bottom: 3px;
+    padding-right: 40px;
+    width:auto;
+  }
+
+  @media (min-width: 768px) {
+    .input-group {
+      position: relative;
+      margin-bottom: 15px;
+      background: #ffffff;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      padding: 9px 48px;
+      padding-bottom: 3px;
+      padding-right: 40px;
+      width: 31%;
+   }
+  }
+
+  @media (max-width:640px){
+    .input-group {
+      position: relative;
+      margin-bottom: 15px;
+      background: #ffffff;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      padding: 9px 48px;
+      padding-bottom: 3px;
+      padding-right: 40px;
+      width: 31%;
+   }
+  }
+  @media (max-width:991px){
+    .input-group {
+      position: relative;
+      margin-bottom: 15px;
+      background: #ffffff;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      padding: 9px 48px;
+      padding-bottom: 3px;
+      padding-right: 40px;
+      width: 31%;
+   }
+  }
+
+  .checkbox-group {
+    position: relative;
+    width: 90%;
+    margin-right: 10px;
+    background: #ffffff;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 9px 48px;
+    padding-bottom: 3px;
+    padding-right: 40px;
+    line-height: 40px;
+  }

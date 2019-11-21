@@ -1,0 +1,13 @@
+<ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
+  <div *nguCarouselDef="let item;" class="item">
+    <div class="title">  
+      <img mat-card-image src={{item}} width="10px" height="300px" position="absolute">
+    </div>
+  </div>
+  <button NguCarouselNext class="rightRs">></button>
+  <button NguCarouselPrev class="leftRs"><</button>
+
+  <ul class="myPoint" NguCarouselPoint>
+		<li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+	</ul>
+</ngu-carousel>

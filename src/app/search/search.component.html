@@ -1,0 +1,69 @@
+<form [formGroup]="searchForm">
+    <div class="login">
+        <h3 class="animated wow zoomIn">Search {{typeSelected}}</h3>
+   
+    </div>
+    <div class="page-wrapper bg-img-1 p-t-165 p-b-100">
+        <div class="wrapper wrapper--w720">
+            <div class="card card-3">
+                <div class="card-body">
+                 
+                   <!-- <ul class="tab-list">
+                        <li class="tab-list__item active">
+                            <a class="tab-list__link" data-toggle="tab">Search {{typeSelected}}</a>
+                        </li>
+                    </ul>-->
+                    <div class="tab-content">
+                        <div class="tab-pane active">
+                           
+                          <!--  <div class="row row-space">
+                            <div class="col-2">-->
+                            <div class="input-group">
+                               <!-- <label class="label">state</label>-->
+                                <i class="zmdi zmdi-account-add input-group-symbol"></i>
+                                <mat-form-field>
+                                    <mat-select  placeholder="State" [(value)]="stateSelected" (selectionChange)="populateCity($event.value)" formControlName="state">
+                                    <mat-option>None</mat-option>
+                                    <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                           <!-- </div>
+                            <div class="col-2"></div>
+                            </div>-->
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                    <!--    <label class="label">city</label>-->
+                                        <i class="zmdi zmdi-calendar-alt input-group-symbol"></i>
+
+                                        <mat-form-field>
+                                            <mat-select placeholder="City" [(value)]="citySelected" (selectionChange)="populatePlaces($event.value)" formControlName="city">
+                                                <mat-option>None</mat-option>
+                                                <mat-option *ngFor="let city of cities" [value]="city">{{city.name}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                    <!--   <label class="label">Place</label>--> 
+                                        <i class="zmdi zmdi-calendar-alt input-group-symbol"></i>
+
+                                        <mat-form-field>
+                                            <mat-select placeholder="Place" [(value)]="placeSelected" (selectionChange)="placeChange($event.value)" formControlName="place">
+                                                <mat-option>None</mat-option>
+                                                <mat-option *ngFor="let place of places" [value]="place" id="place">{{place.name}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <button mat-button class="btn-submit" (click)="searchItems(); clickedSearch=true;" [disabled]=clickedSearch>Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

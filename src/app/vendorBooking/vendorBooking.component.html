@@ -1,0 +1,134 @@
+<form [formGroup]="bookItemForm">
+
+    <div class="vendorBooking-form">
+    <h1>{{item.details.name}}, {{item.details.place}}</h1>
+    <mat-grid-list cols="2" rowHeight="450px" (window:resize)="onResize($event)">
+        <mat-grid-tile>
+            <div class="addItem-form-grids">
+                
+                <div class="input-group">                 
+                  <mat-label><b>Address : </b>{{item.details.address}}</mat-label>
+                </div>
+                <div class="input-group">
+                  <mat-label><b>Contact Number : </b>{{item.details.contactNum}}</mat-label>
+                </div>
+                <div class="vendorBooking-group">
+                  <mat-label><b>Booking From Date:  </b></mat-label>
+                  <mat-form-field>
+                    
+                    <input matInput [matDatepicker]="fromPicker" [min]="startDatePicker" 
+                      placeholder="Choose a date" formControlName="fromDateSelected"  (dateChange)="updateDate($event)">
+                    <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #fromPicker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="vendorBooking-group">
+                    <mat-label><b>Booking To Date:  </b></mat-label>
+                    <mat-form-field>
+                      
+                      <input matInput [matDatepicker]="toPicker" [min]="toDatePicker" placeholder="Choose a date" 
+                        formControlName="toDateSelected" (dateChange)="updateDate($event)">
+                      <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+                      <mat-datepicker #toPicker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            
+              <div class="addItem-form-grids">
+                <h2>Rate Details</h2>
+                <div>
+                  <div class="vendorBooking-group">
+                    <mat-label><b>Base Rate : </b>Rs.{{item.price.baseRate}}/-</mat-label>
+                  </div>    
+                </div> 
+              <div>
+                <div class="vendorBooking-group">
+                    <mat-label><b>Tax : </b>Rs.{{item.price.tax}}/-</mat-label>
+                </div>
+                <div class="vendorBooking-group">
+                  <mat-label><b>Discount : </b>Rs.{{item.price.discount}}/-</mat-label>
+                  <span></span>
+                  <button mat-button class="mat-raised-button" (click)="isEditAmount=true;" [disabled]=editAmount>Edit</button>
+                  <ng-template [ngIf]="isEditAmount == true">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter new Base Rate" formControlName="editedDiscount">
+                      </mat-form-field>
+                      <button mat-button class="mat-raised-button" (click)="calculateRate();">Calculate Total</button>
+                    </ng-template>
+                </div>
+            </div>
+              <div class="vendorBooking-group">
+                  <mat-label><b>Total : </b>Rs.{{total}}/-</mat-label>
+              </div>
+              <ng-template [ngIf]="isAvailable == true">
+                <div class="vendorBooking-group">
+                    <mat-form-field>
+                        <input matInput placeholder="Advance Amount" required="true" formControlName="advanceAmt">
+                    </mat-form-field>
+                </div>
+            </ng-template>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        
+        <ng-template [ngIf]="isAvailable == true">
+          <div class="addItem-form-grids">
+            <mat-grid-list cols="2" rowHeight="300px" (window:resize)="onResize($event)"> 
+              <mat-grid-tile>
+              
+                <div>
+                  <div class="vendorBooking-group">
+                    <mat-label><b>Customer Name:  </b></mat-label>
+                    <mat-form-field>
+                      <input matInput placeholder="Name" required="true" formControlName="custName">
+                    </mat-form-field>
+                  </div>
+                  <div class="vendorBooking-group">
+                    <mat-label><b>Email Id:  </b></mat-label>
+                    <mat-form-field>
+                      <input matInput placeholder="Email ID" formControlName="mailId">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <div>
+                  <div class="vendorBooking-group">
+                    <mat-label><b>Address:  </b></mat-label>
+                    <mat-form-field>
+                      <textarea matInput placeholder="Address" formControlName="address"></textarea>
+                    </mat-form-field>
+                  </div>
+                  <div class="vendorBooking-group">
+                    <mat-label><b>Contact Numbers 1:  </b></mat-label>
+                    <mat-form-field>
+                      <input matInput placeholder="Mobile Number" formControlName="mobile1">
+                    </mat-form-field>
+                  </div>
+                  <div class="vendorBooking-group">
+                    <mat-label><b>Contact Numbers 2:  </b></mat-label>
+                    <mat-form-field>
+                      <input matInput placeholder="Mobile Number" formControlName="mobile2">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </ng-template>
+       
+   
+    
+    <ng-template [ngIf]="isAvailable == true">
+      <!--<mat-label>Available for the given dates !!</mat-label>-->
+      <button mat-raised-button class="btn btn-default" (click)="bookNow(item._id); clickedBook=true;" [disabled]=clickedBook>Book Now</button>
+    </ng-template>
+
+    <ng-template [ngIf]="isAvailable == false">
+      <button mat-button class="btn btn-default" (click)="checkAvailability(item._id); clickedAvail=true;" [disabled]=clickedAvail>Check availability</button>
+    </ng-template>
+    </div>
+</form>

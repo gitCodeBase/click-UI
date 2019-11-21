@@ -1,0 +1,158 @@
+<!--
+ <ng-template [ngIf]="itemList.length > 0" [ngIfElse]="elseBlock">
+    <div>
+      <tr *ngFor="let item of itemList | paginate: {itemsPerPage: 2, currentPage: p}">
+    
+    
+                <div class="section-content">
+                    <div class="tabs-content">
+                        <div class="wrapper">
+                            
+                            <section id="first-tab-group" class="tabgroup">
+                                <ul>
+                                  <li>
+                                    <div class="bounds">
+                                        <mat-card class="content" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="flex-start" fxLayout.xs="row" fxFlexFill>
+                                          <div fxFlex="25" class="sec1" fxFlex.xs="55">
+                                            <ng-template [ngIf]="item.details.images != null" [ngIfElse]="imageElseBlock">  
+                                              <img mat-card-image src={{item.details.images.mainImageUrl}} width="300px" height="100px">
+                                            </ng-template>
+                                            <ng-template #imageElseBlock>
+                                                <img mat-card-image src="assets/images/NoImageFound.jpg" width="300px" height="100px">
+                                            </ng-template>
+                                          </div>
+                                          <div fxFlex="40" class="sec2" fxFlex.xs="85">
+                                              <div>
+                                              <mat-card-title><a (click)="getItemDetails(item._id)" routerLinkActive="active">{{item.details.name}}</a></mat-card-title>
+                                              </div>
+                                              <div>
+                                              <mat-card-content>{{item.details.description}}</mat-card-content>
+                                              </div>
+                                              <div>
+                                              <mat-card-subtitle>{{item.details.address}}</mat-card-subtitle>
+                                              </div>
+                                              
+                                          </div>
+                                          <div fxFlex="22" class="sec3" fxFlex.xs="85">
+                                            
+                                              <mat-card-content>Rating : <star-rating class="large" [starType]="'svg'" rating={{item.details.rating}}
+                                                [readOnly]="true" [step]="0.1" [showHalfStars]="true" [staticColor]="'positive'" [hoverEnabled]="false">
+                                              </star-rating>
+                                              {{item.details.rating}} Reviews</mat-card-content>
+                                            
+                                            <div>
+                                              <mat-card-subtitle>Amount: INR {{item.price.subTotal}}</mat-card-subtitle>
+                                            </div>
+                                          </div>
+                                              
+                                        </mat-card>
+                                      
+                                      </div>
+                                    
+                                  </li>
+                                  
+                                </ul>
+                                
+                                
+                            </section> 
+                       </div>
+                    </div>
+                </div>
+      
+            
+           </tr>
+        </div>
+        </ng-template>
+      -->
+
+
+
+
+	<div class="products">
+		<div class="container">
+			<div class="col-md-4 products-left">
+			
+				
+				
+				<div class="men-position">
+					<a href="single.html"><img src="assets/images/listing_banner_1.jpg" alt=" " class="img-responsive" /></a>
+					<div class="men-position-pos">
+						<h4>Best in town</h4>
+            <h5><span>Catering Service</span></h5>
+            <h5><span>Wide Varities to choose from</span> Veg & Non Veg</h5>
+					</div>
+				</div>
+      </div>
+      <ng-template [ngIf]="itemList.length > 0" [ngIfElse]="elseBlock">
+			<div class="col-md-8 products-right">
+				<div class="products-right-grid">
+					
+					<div class="products-right-grids-position">
+						<img src="assets/images/listing_banner_3.jpg" alt=" " class="img-responsive" />
+						<div class="products-right-grids-position1">
+							<h4>2016 New Collection</h4>
+							<p>Temporibus autem quibusdam et aut officiis debitis aut rerum .</p>
+						</div>
+					</div>
+        </div>
+     
+				<div class="products-right-grids-bottom">
+					<div class="col-md-13 products-right-grids-bottom-grid">
+             <tr *ngFor="let item of itemList | paginate: {itemsPerPage: 15, currentPage: p}">
+                <div class="products-right-grids-bottom1">
+                  <div class="new-collections-grid1 products-right-grid1">
+                    <div class="new-collections-grid1-image">
+
+                      <a href="#" class="product-image">
+                        <img src="http://localhost:8080/api/item/image/retrieve/{{item.details.mainImageUrl}}/"  class="img-responsive1"></a>
+                      <!--<div class="new-collections-grid1-image-pos products-right-grids-pos">
+                        <a (click)="getItemDetails(item._id)" routerLinkActive="active">Quick View</a>
+                      </div>-->
+                    </div>
+                    <mat-card class="content-listing" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="flex-start" fxLayout.xs="row" fxFlexFill>
+                      <div  fxFlex="25" class="sec1" fxFlex.xs="55">
+                        <div>
+                          <mat-card-title><a (click)="getItemDetails(item._id)" routerLinkActive="active">{{item.details.name}}</a></mat-card-title>
+                        </div>
+                        <div>
+                          <mat-card-subtitle>{{item.details.address}}</mat-card-subtitle>
+                        </div>
+                      </div>
+                      <div fxFlex="40" class="sec2" fxFlex.xs="85">
+                        <mat-card-content>Rating : <star-rating class="large" [starType]="'svg'" rating={{item.details.rating}}
+                          [readOnly]="true" [step]="0.1" [showHalfStars]="true" [staticColor]="'positive'" [hoverEnabled]="false">
+                        </star-rating>
+                        {{item.details.rating}} Reviews</mat-card-content>
+                        
+                      </div>
+                      <div fxFlex="22" class="sec3" fxFlex.xs="85">
+                          <mat-card-subtitle>Amount: INR {{item.price.subTotal}}</mat-card-subtitle>
+                      </div>
+                    </mat-card>
+                  </div>
+                </div> 
+              </tr>
+              <pagination-controls (pageChange)="p =$event"></pagination-controls>
+            </div>
+          </div>
+        </div>
+
+    </ng-template>
+    <ng-template #elseBlock>
+        <div class="col-md-8 products-right">
+            <div class="products-right-grid">
+					
+                <div class="products-right-grids-position">
+                  <img src="assets/images/listing_banner_3.jpg" alt=" " class="img-responsive" />
+                  <div class="products-right-grids-position1">
+                    <h4>2016 New Collection</h4>
+                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum .</p>
+                  </div>
+                </div>
+              </div>
+              <h2>No Items found for your current search.</h2>
+          </div>
+        <!--<img mat-card-image src="assets/images/NoImageFound.jpg" width="300px" height="100px">-->
+    </ng-template>
+    </div>
+	</div>

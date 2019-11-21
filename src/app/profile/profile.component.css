@@ -1,0 +1,32 @@
+.example-form {
+  min-width: 150px;
+  max-width: 200px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 250px;
+}
+
+/* CSS for flex layout:start */
+.bounds {
+  height: 200px;
+}
+
+.sec1 {
+  text-transform: uppercase;
+}
+
+.sec2 {
+  padding-left: 5%;
+}
+
+.sec1, .sec2, .sec3 {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.content {
+  min-width: 300px;
+}
+/* CSS for flex layout:end */

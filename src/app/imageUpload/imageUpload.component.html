@@ -1,0 +1,82 @@
+<!--<mat-card>
+    <form [formGroup]="uploadForm" (ngSubmit)="uploadSubmit()">
+      <mat-card-content>
+          <mat-label>Final Step!!! Upload images and videos</mat-label>
+        <mat-form-field class="form-field">
+          <mat-label>Select Document Type</mat-label>
+          <mat-select formControlName="type" required>
+            <mat-option value="Passport">Passport</mat-option>
+            <mat-option value="Driving_license">Driving License</mat-option>
+            <mat-option value="PAN">PAN</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <input formControlName="document" type="file" ng2FileSelect accept=".jpg" [uploader]="uploader" multiple/><br/>
+        <br>
+     
+        <table>
+          <thead>
+          <tr>
+            <th width="90%">
+              File Name
+            </th>
+            <th width="10%">
+              Remove
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of uploader.queue">
+            <th width="90%">
+              (NaN MB)
+            </th>
+            <th class="text-center" width="10%">
+              <mat-icon (click)="item.remove()">delete</mat-icon>
+            </th>
+          </tr>
+          </tbody>
+        </table>
+        <br>
+        <button mat-raised-button color="accent" [disabled]="!uploadForm.valid" type="submit">Upload Data</button>
+      </mat-card-content>
+    </form>
+</mat-card>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3>Upload Photos</h3>            
+            <div class="form-group">
+                <tr *ngFor="let number of imageUploadCount">
+                  <mat-card class="container" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start" fxLayout.sm="column" fxFlexFill>
+                    <div fxFlex="50%" class="sec1">
+                      <input type="file" name="image" (change)="fileProgress($event, number)"/>
+                    </div>
+                        
+                    <div fxFlex="50%" class="sec2">
+                      <div class="image-preview mb-3" *ngIf="number == 1 && previewUrl_1 != null">
+                        <img title="Primary Image " [src]="previewUrl_1" height="100" />  
+                      </div>
+                      <div class="image-preview mb-3" *ngIf="number ==2 && previewUrl_2 != null">
+                        <img [src]="previewUrl_2" height="100" />    
+                      </div>
+                      <div class="image-preview mb-3" *ngIf="number ==3 && previewUrl_3 != null">
+                          <img [src]="previewUrl_3" height="100" />  
+                      </div>
+                      <div class="image-preview mb-3" *ngIf="number ==4 && previewUrl_4 != null">
+                          <img [src]="previewUrl_4" height="100" />  
+                      </div>
+                      <div class="image-preview mb-3" *ngIf="number ==5 && previewUrl_5 != null">
+                          <img [src]="previewUrl_5" height="100" />         
+                      </div>
+                    </div>
+                    <div class="sec3" *ngIf="number == currentImageUploadCount">
+                      <button class="btn btn-primary" (click)="onSubmit(number)">Submit</button>
+                    </div>
+                      
+                  </mat-card>
+                </tr>
+            </div>
+        </div>
+    </div>
+</div>

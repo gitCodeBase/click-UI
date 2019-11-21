@@ -1,0 +1,147 @@
+.item {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.rating{
+    justify-content: left;
+  /*  margin:10px;*/
+}
+.btn-submit {
+    outline: none;
+    border: none;
+    padding: 10px 0;
+    font-size: 1em;
+    color: #fff;
+    display: block;
+    width: 100%;
+    background:#FFC229;
+    margin: 1.5em 0 0;
+}
+
+.btn-submit:hover {
+    background: #00994b;
+  }
+
+/*.button_disable{
+    border: none;
+    background: #FFC229;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 20px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+
+.button_enable {
+    border: none;
+    background: #FFC229;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 20px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+.button_enable:hover {
+    color: #FFC229 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
+    }*/
+
+.rating1{
+    justify-content: left;
+   /*  margin:10px;*/
+}
+
+
+.tile {
+    min-height: 200px;
+    background-color: #ccc;
+    background-size: cover !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(252, 4,4,0.3);
+}
+
+.leftRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+    border-radius: 999px;
+    left: 0;
+}
+
+
+.rightRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+    border-radius: 999px;
+    right: 0;
+}
+
+
+.myPoint {
+    list-style-type: none;
+    text-align: center;
+    padding: 12px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.myPoint l1 {
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.55);
+    padding: 4px;
+    margin: 0 3px;
+    transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    transition: 0.4s;
+}
+
+
+.myPoint l1.active {
+    background: #6b6b6b;
+    transform: scale(1.2);
+}
+
+.bounds {
+    height: 200px;
+}
+
+.sec1 {
+    text-transform: uppercase;
+}
+
+.sec2 {
+    padding-left: 5%;
+}
+
+.sec1, .sec2, .sec3 {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#content {
+    max-width: 100px;
+    margin: 4px
+}

@@ -1,0 +1,154 @@
+
+  <mat-vertical-stepper #linearVerticalStepper="matVerticalStepper" [linear]="isLinear">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>What is your Item</ng-template>
+        
+        <mat-form-field>
+            <mat-label>Item name</mat-label>
+            <input matInput formControlName="name" readonly={{readOnly}} value="{{item.details.name}}">
+            <mat-hint>Include area code</mat-hint>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field>
+              <mat-select placeholder="Type" [(value)]="selected" formControlName="type">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let type of itemTypes" [value]="type">{{type.name}}</mat-option>
+              </mat-select>
+            </mat-form-field> 
+    
+    
+          <mat-form-field>
+              <textarea matInput placeholder="Address" formControlName="address" readonly={{readOnly}} value={{item.details.address}}></textarea>
+            </mat-form-field>
+    
+          <mat-form-field>
+              <mat-select placeholder="State" [(value)]="selected" (selectionChange)="populateCity($event.value)">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field>
+              <mat-select placeholder="City" [(value)]="selected" (selectionChange)="populatePlaces($event.value)" formControlName="city">
+                <mat-option>None</mat-option>
+                  <mat-option *ngFor="let city of cities" [value]="city">{{city.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field>
+              <mat-select placeholder="Place" [(value)]="selected" (selectionChange)="placeSelected($event.value)" formControlName="place">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let place of places" [value]="place" id="place">{{place.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Email address</mat-label>
+                <input matInput formControlName="email" readonly={{readOnly}} value={{item.details.mailId}}>
+                <mat-error>The input is invalid.</mat-error>
+              </mat-form-field>
+    
+              <mat-form-field>
+                  <mat-label>Contact Number 1</mat-label>
+                  <input matInput formControlName="contactNbr1" readonly={{readOnly}} value={{item.details.contactNum[0]}}>
+                  <mat-error>The input is invalid.</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Contact Number 2</mat-label>
+                    <input matInput formControlName="contactNbr2" readonly={{readOnly}} value={{item.details.contactNum[1]}}>
+                    <mat-error>The input is invalid.</mat-error>
+                  </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Available Quantity</mat-label>
+                    <input matInput formControlName="qtyAvailable" readonly={{readOnly}} value={{item.details.qtyAvailable}}>
+                    <mat-error>The input is invalid.</mat-error>
+                </mat-form-field>
+     
+        <div>
+          <button mat-button matStepperNext (click)="validateForm1()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>More details and facilities available</ng-template>
+        <mat-form-field>
+            <textarea matInput placeholder="Description" formControlName="description" readonly={{readOnly}} value="{{item.details.description}}"></textarea>
+        </mat-form-field>
+  
+       
+        <mat-form-field>
+            <textarea matInput placeholder="Amenities" formControlName="amenity1" readonly={{readOnly}} value={{item.details.amenities.amenity1}}></textarea>
+            <textarea matInput placeholder="Amenities" formControlName="amenity2" readonly={{readOnly}} value={{item.details.amenities.amenity2}}></textarea>
+            <textarea matInput placeholder="Amenities" formControlName="amenity3" readonly={{readOnly}} value={{item.details.amenities.amenity3}}></textarea> 
+        </mat-form-field>
+  
+            <mat-checkbox formControlName="temperatureCtrl">Temperature Control Ac/NonAc</mat-checkbox>
+            <mat-checkbox formControlName="dressChangingRoom">Bride & Groom dress changing rooms</mat-checkbox>
+            <mat-checkbox formControlName="kitchen">Kitchen</mat-checkbox>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Let's have the price details</ng-template>
+          
+          <mat-form-field>
+              <textarea matInput placeholder="Cost for a day" formControlName="cost" readonly={{readOnly}} value={{item.price.baseRate}}></textarea>
+          </mat-form-field>
+    
+          <mat-form-field>
+              <textarea matInput placeholder="Tax" formControlName="tax" readonly={{readOnly}} value={{item.price.tax}}></textarea>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <textarea matInput placeholder="Discount" formControlName="discount" readonly={{readOnly}} value={{item.price.discount}}></textarea>
+          </mat-form-field>
+  
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+     
+        <ng-template [ngIf]="action == 'addItem'" [ngIfElse]="elseBlock">
+           <button mat-button (click)="formSubmited()">Submit</button>
+        </ng-template>
+        <ng-template #elseBlock>
+          <button mat-button (click)="modifyDetails()">Modify</button>
+        </ng-template>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+    </mat-vertical-stepper>
+   
+ 
+
+ 
+ <!--<div>
+ 
+        <app-imageUpload></app-imageUpload>
+        
+      </div>-->
+    

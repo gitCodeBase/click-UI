@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Write a review about </h1>
+<div mat-dialog-content>
+  <form [formGroup]="itemReviewForm">
+    <div>
+      <mat-card-subtitle>Give yor Rating : <star-rating cass="large" [starType]="'svg'" rating="0"
+          [readOnly]="false" [step]="0.1" [showHalfStars]="true" [staticColor]="'positive'" 
+          [hoverEnabled]="false" (onRatingChange)="onRate($event)">
+        </star-rating>
+      </mat-card-subtitle>
+      <mat-form-field>
+        <input matInput placeholder="Heading" required="true" formControlName="heading">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <textarea matInput placeholder="Leave a comment" required="true" formControlName="comment"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onSubmit()">Submit</button>
+</div>

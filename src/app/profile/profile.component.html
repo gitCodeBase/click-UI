@@ -1,0 +1,85 @@
+<!--<h1>{{type | titlecase}} Profile</h1>-->
+<ng-template [ngIf]="editProfileFlag == false" [ngIfElse]="elseBlock">
+    <mat-grid-list cols="3" rowHeight="400px" (window:resize)="onResize($event)">
+        <mat-grid-tile>
+            <div>
+                <div>
+                    <mat-label><b>Name : </b>{{name}}</mat-label>
+                </div>
+                <div>                 
+                    <mat-label><b>Address : </b>{{address}}</mat-label>
+                </div>
+                <div>
+                    <mat-label><b>Primary Contact Number : </b>{{primeContactNbr}}</mat-label>
+                </div>
+                <div>
+                    <mat-label><b>Secondary Contact Number : </b>{{secContactNbr}}</mat-label>
+                </div>
+                <div>
+                    <mat-label><b>Email : </b>{{emailId}}</mat-label>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <ng-template [ngIf]="userType != 'vendor'">
+        <mat-grid-tile>
+            <div>
+                <div>
+                    <mat-label><b><a (click)="openCustomerBookedList(user._id)">Booked Details</a></b></mat-label>
+                </div>
+            </div>
+        </mat-grid-tile>
+        </ng-template>
+    </mat-grid-list>
+
+    <div>
+        <button mat-button class="btn btn-default" (click)="editProfile()">Edit Profile</button>
+    </div>
+</ng-template>
+
+<ng-template #elseBlock>
+    <form [formGroup]="profileForm">
+        <mat-label><h1><b>Edit Profile</b></h1></mat-label>
+        <mat-grid-list cols="3" rowHeight="400px" (window:resize)="onResize($event)">
+            <mat-grid-tile>
+                <div>
+                    <div>
+                      <mat-form-field>
+                        <mat-label><b>Name</b></mat-label>
+                        <input matInput placeholder="Name" required="true" formControlName="name">
+                      </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label><b>Address</b></mat-label>
+                            <input matInput placeholder="Address" required="true" formControlName="address">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label><b>Primary Contact Number</b></mat-label>
+                            <input matInput placeholder="Contact Numer" required="true" formControlName="primeContactNbr">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                            <mat-form-field>
+                                <mat-label><b>Secondary Contact Number</b></mat-label>
+                                <input matInput placeholder="Contact Numer" required="true" formControlName="secContactNbr">
+                            </mat-form-field>
+                        </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label><b>Mail Id</b></mat-label>
+                            <input matInput placeholder="Mail Id" required="true" formControlName="mailId">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <div>
+            <button mat-button class="btn btn-default" (click)="updateProfile()">Submit</button>
+        </div>
+    </form>
+</ng-template>
+ 
+    
