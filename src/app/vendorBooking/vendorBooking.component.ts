@@ -151,5 +151,8 @@ export class VendorBookingComponent implements OnInit {
     return this.total;
   }
 
+  onResize(event) {
+  }
+
   
 }

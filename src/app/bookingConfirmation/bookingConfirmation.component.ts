@@ -18,5 +18,8 @@ export class BookingConfirmationComponent implements OnInit {
     });
   }
 
+  onResize(event) {
+  }
+
   
 }

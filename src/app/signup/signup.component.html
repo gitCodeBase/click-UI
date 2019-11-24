@@ -93,14 +93,14 @@
                     &nbsp;
                     <div>
                         <mat-form-field>
-                            <mat-select placeholder="State" [(value)]="stateSelected" (selectionChange)="populateCity($event.value)" formControlName="state">
+                            <mat-select placeholder="State" (selectionChange)="populateCity($event.value)" formControlName="state">
                                 <mat-option>None</mat-option>
                                 <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
                             </mat-select>
                         </mat-form-field>
                         &nbsp;&nbsp;
                         <mat-form-field>
-                            <mat-select placeholder="City" [(value)]="citySelected" (selectionChange)="populatePlaces($event.value)" formControlName="city">
+                            <mat-select placeholder="City" formControlName="city">
                                 <mat-option>None</mat-option>
                                     <mat-option *ngFor="let city of cities" [value]="city">{{city.name}}</mat-option>
                             </mat-select>

@@ -50,7 +50,7 @@
                 <div class="vendorBooking-group">
                   <mat-label><b>Discount : </b>Rs.{{item.price.discount}}/-</mat-label>
                   <span></span>
-                  <button mat-button class="mat-raised-button" (click)="isEditAmount=true;" [disabled]=editAmount>Edit</button>
+                  <button mat-button class="mat-raised-button" (click)="isEditAmount=true;" [disabled]=isEditAmount>Edit</button>
                   <ng-template [ngIf]="isEditAmount == true">
                       <mat-form-field>
                         <input matInput placeholder="Enter new Base Rate" formControlName="editedDiscount">

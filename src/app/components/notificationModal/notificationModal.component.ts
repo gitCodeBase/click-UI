@@ -9,6 +9,8 @@ import { MatDialog } from '@angular/material';
 })
 export class NotificationModalComponent {
 
+  p: String;
+
   constructor(
     public dialogRef: MatDialogRef<NotificationModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog) { }

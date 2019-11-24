@@ -12,7 +12,7 @@
           </mat-form-field>
     
           <mat-form-field>
-              <mat-select placeholder="Type" [(value)]="selected" formControlName="type">
+              <mat-select placeholder="Type" formControlName="type">
                 <mat-option>None</mat-option>
                 <mat-option *ngFor="let type of itemTypes" [value]="type">{{type.name}}</mat-option>
               </mat-select>
@@ -24,21 +24,21 @@
             </mat-form-field>
     
           <mat-form-field>
-              <mat-select placeholder="State" [(value)]="selected" (selectionChange)="populateCity($event.value)">
+              <mat-select placeholder="State" (selectionChange)="populateCity($event.value)">
                 <mat-option>None</mat-option>
                 <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
               </mat-select>
             </mat-form-field>
             
             <mat-form-field>
-              <mat-select placeholder="City" [(value)]="selected" (selectionChange)="populatePlaces($event.value)" formControlName="city">
+              <mat-select placeholder="City" (selectionChange)="populatePlaces($event.value)" formControlName="city">
                 <mat-option>None</mat-option>
                   <mat-option *ngFor="let city of cities" [value]="city">{{city.name}}</mat-option>
               </mat-select>
             </mat-form-field>
             
             <mat-form-field>
-              <mat-select placeholder="Place" [(value)]="selected" (selectionChange)="placeSelected($event.value)" formControlName="place">
+              <mat-select placeholder="Place" formControlName="place">
                 <mat-option>None</mat-option>
                 <mat-option *ngFor="let place of places" [value]="place" id="place">{{place.name}}</mat-option>
               </mat-select>
@@ -138,7 +138,7 @@
         <ng-template #elseBlock>
           <button mat-button (click)="modifyDetails()">Modify</button>
         </ng-template>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <!--<button mat-button (click)="reset()">Reset</button>-->
       </div>
     </mat-step>
     </mat-vertical-stepper>

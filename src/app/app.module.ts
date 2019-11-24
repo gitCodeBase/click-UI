@@ -15,7 +15,7 @@ import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule,
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
-import {FileSelectDirective} from "ng2-file-upload";
+//import {FileSelectDirective} from "ng2-file-upload";
 //import { Ng2FileDropModule }  from 'ng2-file-drop';
 
 import { HeaderComponent } from './components/header/header.component';
@@ -85,7 +85,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     UpdateItemComponent,
     ViewItemComponent,
     SearchComponent,
-    FileSelectDirective,
+  //  FileSelectDirective,
     ImageUploadComponent,
     NotificationModalComponent,
     NavigationHeaderComponent,

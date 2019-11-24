@@ -15,7 +15,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 export class ListingComponent implements OnInit{
   
-  private itemList: Item[];
+  /*private*/ itemList: Item[];
   place: string;
   typeId: string;
   placeId: string;

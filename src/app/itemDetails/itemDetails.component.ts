@@ -33,6 +33,7 @@ export class ItemDetailsComponent implements AfterViewInit, OnInit {
   imageToShow: any;
   obj: NgxGalleryImage;
   images: Image[];
+  amount: string;
 
   constructor(
     private cdr: ChangeDetectorRef, private commonDataService: CommonDataService,

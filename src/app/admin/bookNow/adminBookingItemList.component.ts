@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+/*import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonDataService } from '../../service/common-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ItemService } from '../../service/item.service';
@@ -57,3 +57,4 @@ export class AdminBookingItemListComponent implements OnInit, AfterViewInit{
 
   
 }
+*/

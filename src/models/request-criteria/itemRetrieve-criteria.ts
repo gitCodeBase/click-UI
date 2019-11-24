@@ -26,6 +26,7 @@ export class ItemDetails {
     mainImageUrl: string;
     description: string;
     qtyAvailable: number;
+    rating: string;
 }
 
 export class Pricing {
