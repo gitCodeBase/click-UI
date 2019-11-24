@@ -13,7 +13,7 @@ export class TopCarouselComponent implements AfterViewInit {
   withAnim = true;
   resetAnim = true;
   
-  @ViewChild('myCarousel') myCarousel: NguCarousel<any>;
+  @ViewChild('myCarousel', { static: true }) myCarousel: NguCarousel<any>;
   carouselConfig: NguCarouselConfig = {
     grid: { xs:1, sm: 1, md: 1, lg: 1, all: 0},
     load: 3,

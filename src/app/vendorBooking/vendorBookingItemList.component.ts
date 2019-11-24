@@ -18,8 +18,8 @@ export class VendorBookingItemListComponent implements OnInit, AfterViewInit{
   displayedColumns = ['name', 'address'];
   dataSource: MatTableDataSource<Item>;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
 
   constructor(private commonDataService: CommonDataService,
     private router: Router, private route: ActivatedRoute,

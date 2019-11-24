@@ -20,8 +20,8 @@ export class BookedListComponent {
   displayedColumns = ['itemId', 'bookingFromDate', 'bookingToDate', 'type', 'customer'];
   dataSource: MatTableDataSource<Booking>;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private bookingService: BookingService, 
     private commonDataService: CommonDataService, private route: ActivatedRoute, 

@@ -18,8 +18,8 @@ export class ProfileBookedItemListComponent implements OnInit, AfterViewInit{
   displayedColumns = ['name', 'bookingFromDate', 'bookingToDate', 'amtCollected', 'createdOn'];
   dataSource: MatTableDataSource<Booking>;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
 
   constructor(private commonDataService: CommonDataService, private bookingService: BookingService,
     private router: Router, private route: ActivatedRoute,
