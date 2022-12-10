@@ -34,7 +34,7 @@
     "core-js": "^2.5.4",
     "cropperjs": "^1.4.3",
     "css-star-rating": "^1.2.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "ng-image-slider": "^1.2.1",
